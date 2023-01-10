@@ -1,5 +1,8 @@
-// let txnum = window.document.querySelector('input#numero')
-// let num = Number(txnum.value)
+// Fazer a parte de adição com teclas, ex + botão adicionar etc. 
+// Melhorar o css tmb 
+
+
+
 let res = 0
 let restx = window.document.querySelector('h4#res')
 // Fazendo a criaçao das variaveis de estado, usadas dps para o igual.
