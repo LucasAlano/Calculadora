@@ -18,14 +18,21 @@ function somar(){
     var txnum = window.document.querySelector('input#numero')
     var num = Number(txnum.value)
 
+    // Mesmo não tendo alguam função aparente, se não zerarmos o primeiro ele da erro nos outros operadores.
+    if (primeiro == 1){
+        primeiro = 0
+    }
+
+    
     res += num
+    
     est_som = 1
     est_sub = 0
     est_div = 0
     est_mul = 0
     txnum.value = ""
     txnum.focus()
-    return res, est_som, est_sub, est_div, est_mul
+    return res, primeiro, est_som, est_sub, est_div, est_mul
 }  
 
 function subtrair(){
@@ -75,8 +82,8 @@ function multiplicar(){
     var num = Number(txnum.value)
 
     if (primeiro == 1){
-        res += num
         primeiro = 0
+        res += num
     }else{
         res = res * num 
     }
@@ -87,8 +94,9 @@ function multiplicar(){
     est_mul = 1
     txnum.value = ""
     txnum.focus()
-    return res, priemiro, est_som, est_sub, est_div, est_mul
+    return res, primeiro, est_som, est_sub, est_div, est_mul
 }  
+
 function resultado(){
     var txnum = window.document.querySelector('input#numero')
     var num = Number(txnum.value)
@@ -108,6 +116,18 @@ function resultado(){
         res = res * num
         restx.innerHTML = `O resultado foi <strong>${res}</strong>`
     }
+
+    est_som = 0
+    est_sub = 0
+    est_div = 0
+    est_mul = 0
+
+    txnum.value = ''
+    txnum.focus()
+
+    primeiro = 1
+    
+    return res, priemiro, est_som, est_sub, est_div, est_mul
 }
 
 function limpar(){
